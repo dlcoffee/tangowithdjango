@@ -1,0 +1,674 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"v",
+				"v"
+			],
+			[
+				"app",
+				"approx_euler"
+			],
+			[
+				"tim",
+				"time_array"
+			],
+			[
+				"i",
+				"i"
+			],
+			[
+				"out",
+				"outToServer"
+			],
+			[
+				"user",
+				"user_input"
+			],
+			[
+				"print",
+				"println"
+			],
+			[
+				"usr",
+				"user_input"
+			],
+			[
+				"Outp",
+				"OutputStream"
+			],
+			[
+				"get",
+				"getOutputStream"
+			],
+			[
+				"Output",
+				"getOutputStream"
+			],
+			[
+				"Buff",
+				"BufferedWriter"
+			],
+			[
+				"client",
+				"clientSocket"
+			],
+			[
+				"server",
+				"serverSocket"
+			],
+			[
+				"approx",
+				"approximation"
+			],
+			[
+				"true",
+				"true_values"
+			],
+			[
+				"tru",
+				"true_solution"
+			],
+			[
+				"exac",
+				"exact_solution"
+			],
+			[
+				"two",
+				"two_info_list"
+			],
+			[
+				"one_f",
+				"one_info_list"
+			],
+			[
+				"repulsion",
+				"repulusion_force"
+			],
+			[
+				"dec",
+				"decrypt_vigenere"
+			],
+			[
+				"key",
+				"key"
+			],
+			[
+				"s",
+				"s"
+			],
+			[
+				"cip",
+				"cipherletter"
+			],
+			[
+				"cipher",
+				"ciphertext"
+			],
+			[
+				"count",
+				"countLetters"
+			],
+			[
+				"create",
+				"create_vector"
+			],
+			[
+				"A",
+				"A"
+			],
+			[
+				"x1",
+				"x1"
+			],
+			[
+				"e",
+				"e"
+			],
+			[
+				"message",
+				"messageDigest"
+			],
+			[
+				"str",
+				"str2"
+			],
+			[
+				"d",
+				"digest"
+			],
+			[
+				"mess",
+				"messageDigest"
+			],
+			[
+				"plain",
+				"plainText"
+			],
+			[
+				"n",
+				"n"
+			],
+			[
+				"cre",
+				"create_vec"
+			],
+			[
+				"crea",
+				"create_matrix"
+			],
+			[
+				"p_f",
+				"p_f"
+			],
+			[
+				"ve",
+				"vertex"
+			],
+			[
+				"push",
+				"push_back"
+			],
+			[
+				"to",
+				"toCheck"
+			],
+			[
+				"sear",
+				"search_stack"
+			],
+			[
+				"searc",
+				"search_stack"
+			],
+			[
+				"ch",
+				"checkCyclesHelper"
+			],
+			[
+				"pop",
+				"pop_back"
+			],
+			[
+				"adjan",
+				"adjacent"
+			],
+			[
+				"check",
+				"checkCyclesHelper"
+			],
+			[
+				"clear",
+				"clearCheck"
+			],
+			[
+				"che",
+				"checkCycles"
+			],
+			[
+				"cy",
+				"cycle_counter"
+			],
+			[
+				"adj",
+				"adjacent"
+			],
+			[
+				"ver",
+				"vertices"
+			],
+			[
+				"adja",
+				"adjacencies"
+			],
+			[
+				"ad",
+				"adjacent"
+			],
+			[
+				"acc",
+				"accepted_edges"
+			],
+			[
+				"acce",
+				"accepted_names"
+			],
+			[
+				"topush",
+				"topush1"
+			],
+			[
+				"read",
+				"read_int"
+			],
+			[
+				"sec",
+				"secondnode"
+			],
+			[
+				"first",
+				"firstnode"
+			],
+			[
+				"edge",
+				"edgeList"
+			],
+			[
+				"accepte",
+				"accepted_edges"
+			],
+			[
+				"de",
+				"DereferenceCompareNode"
+			],
+			[
+				"num",
+				"num_lines"
+			],
+			[
+				"input",
+				"input"
+			],
+			[
+				"right",
+				"right_balance"
+			],
+			[
+				"left",
+				"left_balance"
+			],
+			[
+				"getHeig",
+				"getHeight"
+			],
+			[
+				"height",
+				"height"
+			],
+			[
+				"getHeight",
+				"getHeightHelper"
+			],
+			[
+				"rot",
+				"rightrotation"
+			],
+			[
+				"access",
+				"accessHelper"
+			],
+			[
+				"percol",
+				"percolatedown"
+			],
+			[
+				"hash",
+				"hash_table"
+			],
+			[
+				"look",
+				"lookupptr"
+			],
+			[
+				"loo",
+				"lookupptr"
+			],
+			[
+				"si",
+				"key_size"
+			],
+			[
+				"value",
+				"value"
+			],
+			[
+				"heap",
+				"heapifyup"
+			],
+			[
+				"l",
+				"location"
+			],
+			[
+				"has",
+				"hash_table"
+			],
+			[
+				"lookup",
+				"lookupptr"
+			],
+			[
+				"h",
+				"hash_table"
+			],
+			[
+				"mo",
+				"modulus"
+			],
+			[
+				"in",
+				"in"
+			],
+			[
+				"size",
+				"size"
+			],
+			[
+				"content",
+				"content"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "tango_with_django_project/rango/views.py",
+			"settings":
+			{
+				"buffer_size": 37,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "tango_with_django_project/rango/rango.sublime-project",
+			"settings":
+			{
+				"buffer_size": 98,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 247.0,
+		"selected_items":
+		[
+			[
+				":w",
+				":w - Save"
+			],
+			[
+				":W",
+				":w - Save"
+			],
+			[
+				"latex",
+				"LaTeXTools: View PDF"
+			],
+			[
+				"Package Control: insta",
+				"Package Control: Install Package"
+			],
+			[
+				"",
+				"Convert Case: Title Case"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 125.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/danieltea/Desktop/dblemjrschd",
+		"/Users/danieltea/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/Users/danieltea/Library/Application Support/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
+		"/Users/danieltea/Library/Application Support/Sublime Text 2/Packages/LaTeXTools/README.markdown",
+		"/Users/danieltea/Documents/School Work/Fall 2013/CS176A/Homework 1/server_java_udp.java",
+		"/Users/danieltea/Documents/School Work/Fall 2013/CS176A/Homework 1/EchoClient.java",
+		"/Users/danieltea/Documents/School Work/Fall 2013/CS176A/Homework 1/client_java_udp.java",
+		"/Users/danieltea/Documents/School Work/Fall 2013/CS111/untitled.py",
+		"/Users/danieltea/Documents/Development/Over The Wire/Krypton/level4_analysis",
+		"/Users/danieltea/Documents/Development/Over The Wire/Krypton/Level_4.py",
+		"/Users/danieltea/Documents/Development/Over The Wire/Krypton/Level_3helper.py",
+		"/Users/danieltea/Documents/Development/Over The Wire/Krypton/Level_3.py",
+		"/Users/danieltea/Documents/Development/Over The Wire/Krypton/cracked_level3",
+		"/Users/danieltea/Documents/Development/Over The Wire/Krypton/level3_pw",
+		"/Users/danieltea/Documents/Development/Over The Wire/Krypton/hint3_cracked",
+		"/Users/danieltea/Documents/Development/Over The Wire/Krypton/hint2_cracked",
+		"/Users/danieltea/Documents/Development/Over The Wire/Krypton/level3_key",
+		"/Users/danieltea/Library/Application Support/Sublime Text 2/Packages/LaTeXTools/LaTeXTools Preferences.sublime-settings",
+		"/Users/danieltea/Documents/Development/learning_crypto/chapter1.SimplePolicyTest.java",
+		"/Users/danieltea/Documents/Development/Bouncy Castle/DigitalSignatureExample.java",
+		"/Users/danieltea/Documents/Development/Bouncy Castle/CrunchifyByteArrayToString.java",
+		"/Users/danieltea/Documents/Repos/bc-java/core/src/test/jdk1.4/org/bouncycastle/pqc/crypto/test/AllTests.java",
+		"/Users/danieltea/Documents/Development/Bouncy Castle/MessageAuthenticationCodeExample.java",
+		"/Users/danieltea/Documents/Development/Bouncy Castle/CharacterEncodingExample.java",
+		"/Users/danieltea/Documents/Development/Bouncy Castle/StreamCoverter.java",
+		"/Users/danieltea/Documents/Development/Bouncy Castle/UnicodeFormatter.java",
+		"/Users/danieltea/Documents/Development/Bouncy Castle/StringConverter.java",
+		"/Users/danieltea/Documents/Development/Bouncy Castle/Test.java",
+		"/Users/danieltea/Documents/Development/Bouncy Castle/MessageDigestExample.java",
+		"/Users/danieltea/Documents/Development/Bouncy Castle/rsa-example/PublicExample.java",
+		"/Users/danieltea/Documents/Development/Bouncy Castle/ProviderInformation.java",
+		"/Users/danieltea/Documents/Development/Bouncy Castle/PrivateExample.java",
+		"/Users/danieltea/Documents/School Work/Summer 2013/Math 104B/homework1.py",
+		"/Users/danieltea/Downloads/pyside-setup-master/setup.py",
+		"/Users/danieltea/Documents/School Work/Winter 2013/cs178/hw1.py",
+		"/Users/danieltea/Documents/School Work/Spring 2013/CS 130A/P3/main.cpp",
+		"/Users/danieltea/Documents/School Work/Spring 2013/CS 130A/P3/mst.cpp",
+		"/Users/danieltea/Documents/School Work/Spring 2013/CS 130A/P3/disjoint_set.h",
+		"/Users/danieltea/Documents/School Work/Spring 2013/CS 130A/P3/disjoint_set.cpp",
+		"/Users/danieltea/Documents/School Work/Spring 2013/CS 130A/P3/mst.h",
+		"/Users/danieltea/Documents/School Work/Spring 2013/CS 130A/P3/vertex.h",
+		"/Users/danieltea/Documents/School Work/Spring 2013/CS 130A/P3/disjointset.cpp",
+		"/Users/danieltea/Documents/School Work/Spring 2013/CS 130A/P3/edge.h",
+		"/Users/danieltea/Documents/School Work/Spring 2013/CS 130A/P3/graph.cpp",
+		"/Users/danieltea/Documents/School Work/Spring 2013/CS 130A/P3/edge.cpp",
+		"/Users/danieltea/Documents/School Work/Spring 2013/CS 130A/P3/vertex.cpp",
+		"/Users/danieltea/Documents/School Work/Spring 2013/CS 130A/P3/node.h",
+		"/Users/danieltea/Documents/School Work/Spring 2013/CS 130A/P3/node.cpp",
+		"/Users/danieltea/Documents/School Work/Spring 2013/CS 130A/P3new/disjoint_set.h",
+		"/Users/danieltea/Documents/School Work/Spring 2013/CS 130A/P3new/adj_list.h",
+		"/Users/danieltea/Documents/School Work/Spring 2013/CS 130A/P3new/incidence_collection.h",
+		"/Users/danieltea/Documents/School Work/Spring 2013/CS 130A/P2/test_cases/inorder_insertdelete/ordelete_insertdelete/main.cpp",
+		"/Users/danieltea/Documents/School Work/Spring 2013/CS 130A/P2/AVL/AVL.cpp",
+		"/Users/danieltea/Documents/School Work/Spring 2013/CS 130A/P2/AVL/AVL.h",
+		"/Users/danieltea/Documents/School Work/Spring 2013/CS 130A/P2/BST/makefile",
+		"/Users/danieltea/Documents/School Work/Spring 2013/CS 130A/P2/av1.cpp",
+		"/Users/danieltea/Desktop/midterm.tex",
+		"/Users/danieltea/Desktop/latest.sh",
+		"/Users/danieltea/Documents/School Work/Spring 2013/CS 130A/heapsort/minheap.cpp",
+		"/Users/danieltea/Documents/School Work/Spring 2013/CS 130A/problem1.cpp",
+		"/Users/danieltea/Documents/School Work/Spring 2013/CS 130A/Node.cpp",
+		"/Users/danieltea/Documents/School Work/Spring 2013/CS 130A/prog1.cpp",
+		"/Users/danieltea/Documents/School Work/Spring 2013/CS 130A/quash.h"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"enum",
+			"color",
+			"pixels",
+			"draw",
+			"\\P",
+			"mathbb",
+			"math",
+			"gnx",
+			"g",
+			"z",
+			"tA",
+			"Z",
+			"W(x",
+			"T_1",
+			"int",
+			"sum",
+			"ruler",
+			"k",
+			"names",
+			"sets",
+			"size",
+			"@",
+			"count",
+			"cout",
+			"node",
+			"getbala",
+			"heap.front"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": false
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "tango_with_django_project/rango/views.py",
+					"settings":
+					{
+						"buffer_size": 37,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								37,
+								37
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "tango_with_django_project/rango/rango.sublime-project",
+					"settings":
+					{
+						"buffer_size": 98,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 34.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 100.0
+	},
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"",
+				"/Users/danieltea/Documents/School Work/Fall 2013/MATH118A/hw6.tex"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 235.0,
+	"status_bar_visible": true
+}
