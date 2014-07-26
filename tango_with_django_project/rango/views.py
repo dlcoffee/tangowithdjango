@@ -3,6 +3,8 @@ from django.shortcuts import render_to_response
 from django.template import RequestContext
 from django.http import HttpResponse
 
+
+# each function is a view
 def index(request):
     # Request the context of the request.
     # The context contains information such as the client's machine details, for example.
