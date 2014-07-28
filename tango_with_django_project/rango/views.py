@@ -1,12 +1,21 @@
-from django.shortcuts import render
-from django.shortcuts import render_to_response
+from django.shortcuts import render, render_to_response
 from django.template import RequestContext
 from django.http import HttpResponse
+
+# import forms
+from rango.forms import CategoryForm, PageForm
 
 # import models (haha)
 from rango.models import Category
 from rango.models import Page
 
+# some helper functions
+def encode_url(url):
+    return url.replace(' ', '_')
+
+
+def decode_url(url):
+    return url.replace('_', ' ')
 
 
 # each function is a view
@@ -21,7 +30,7 @@ def index(request):
     # loop through each category and make a category attribute
     # and replace spaces with underscores
     for category in category_list:
-        category.url = category.name.replace(' ', '_')
+        category.url = encode_url(category.name)
 
     # Render the response and return to the client.
     return render_to_response('rango/index.html', context_dict, context)
@@ -35,6 +44,7 @@ def category(request, category_name_url):
     category_name = category_name_url.replace('_', ' ')
 
     context_dict = {'category_name': category_name}
+    context_dict['category_name_url'] = category_name_url
 
     try:
         # Can we find a category with the given name?
@@ -62,6 +72,83 @@ def category(request, category_name_url):
 
 
 
+def add_category(request):
+    '''
+    handles three different scenarios:
+        - showing a new, blank form for adding a category
+        - saving form data provided by the user to the associated model, and
+          rendering the homepage
+        - if there are errors, redisplay redisplay the form with error messages
+    '''
+    # get the context from request
+    context = RequestContext(request)
+
+    # A HTTP POST?
+    if request.method == 'POST':
+        form = CategoryForm(request.POST)
+
+        if form.is_valid():
+            # save the category in the database
+            form.save(commit=True)
+
+            # now call the index() view
+            return index(request)
+        else:
+            # the supplied form contains errors
+            print form.errors
+
+    else:
+        # display the form to enter details
+        form = CategoryForm()
+
+
+    # bad form or form details, or no form supplied
+    return render_to_response('rango/add_category.html', {'form': form}, context)
+
+
+def add_page(request, category_name_url):
+    '''
+    '''
+
+    context = RequestContext(request)
+    category_name = decode_url(category_name_url)
+    
+    if request.method == 'POST':
+        form = PageForm(request.POST)
+
+        if form.is_valid():
+            # not all fields are automatically populated!
+            page = form.save(commit=False)
+
+            # retrieve the associated category
+            try:
+                cat = Category.objects.get(name=category_name)
+                page.category = cat
+            except Category.DoesNotExist:
+                # go back and render the add category form as a way of 
+                # saying the category DNE
+                return render_to_response('rango/add_category.html', {}, context)
+
+            page.views = 0
+            page.save()
+
+            # display teh category 
+            return category(request, category_name_url)
+        else:
+            print form.errors
+    else:
+        form = PageForm()
+
+    return render_to_response( 'rango/add_page.html', 
+            {'category_name_url': category_name_url,
+             'category_name': category_name, 'form': form}, context)
+
+
+
+
 def about(request):
     context = RequestContext(request)
     return render_to_response('rango/about.html', context)
+
+
+
