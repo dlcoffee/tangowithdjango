@@ -40,33 +40,20 @@ def index(request):
     page_list = Page.objects.order_by('views')[:5]
     context_dict['pages'] = page_list
 
-    # obtain our response object so we can add cookie information before
-    # returning
-    response = render_to_response('rango/index.html', context_dict, context)
+    if request.session.get('last_visit'):
+        # The session has a value for the last visit
+        last_visit_time = request.session.get('last_visit')
+        visits = request.session.get('visits', 0)
 
-    
-    # get number of visits to the website
-    # use COOKIES.get() to obtain the 'visits' cookie
-    # if it doesn't exist, set it to 0
-    visits = int(request.COOKIES.get('visits', '0'))
-
-    # does the 'last_visit' cookie exist?
-    if 'last_visit' in request.COOKIES:
-        last_visit = request.COOKIES['last_visit']
-        
-        # cast value to a Python date/time object
-        last_visit_time = datetime.strptime(last_visit[:-7], "%Y-%m-%d %H:%M:%S")
-
-        # if it's been more than a day since the last visit,
-        if (datetime.now() - last_visit_time).seconds > 10:
-            response.set_cookie('visits', visits+1)
-            response.set_cookie('last_visit', datetime.now())
+        if (datetime.now() - datetime.strptime(last_visit_time[:-7], "%Y-%m-%d %H:%M:%S")).seconds > 5:
+            request.session['visits'] = visits + 1
+            request.session['last_visit'] = str(datetime.now())
     else:
-        response.set_cookie('last_visit', datetime.now())
+        # The get returns None, and the session does not have a value for the last visit.
+        request.session['last_visit'] = str(datetime.now())
+        request.session['visits'] = 1
 
-
-    return response
-    #return render_to_response('rango/index.html', context_dict, context)
+    return render_to_response('rango/index.html', context_dict, context)
 
 
 def category(request, category_name_url):
@@ -270,7 +257,14 @@ def user_logout(request):
 
 def about(request):
     context = RequestContext(request)
-    return render_to_response('rango/about.html', context)
+   
+    # check if there is a 'visits' serverside cookie or not
+    if request.session.get('visits'):
+        count = request.session.get('visits')
+    else:
+        count = 0
+
+    return render_to_response('rango/about.html', {'visits': count}, context)
 
 
 @login_required
