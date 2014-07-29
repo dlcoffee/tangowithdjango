@@ -3,6 +3,8 @@ from django.template import RequestContext
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from datetime import datetime
+
 
 # import forms
 from rango.forms import CategoryForm, PageForm
@@ -27,7 +29,7 @@ def index(request):
     context = RequestContext(request)
 
     # Query for categories - add the list to our context dictionary.
-    category_list = Category.objects.order_by('-likes')[:5]
+    category_list = Category.objects.all()
     context_dict = {'categories': category_list}
 
     # loop through each category and make a category attribute
@@ -35,7 +37,22 @@ def index(request):
     for category in category_list:
         category.url = encode_url(category.name)
 
-    # Render the response and return to the client.
+    page_list = Page.objects.order_by('views')[:5]
+    context_dict['pages'] = page_list
+
+    if request.session.get('last_visit'):
+        # The session has a value for the last visit
+        last_visit_time = request.session.get('last_visit')
+        visits = request.session.get('visits', 0)
+
+        if (datetime.now() - datetime.strptime(last_visit_time[:-7], "%Y-%m-%d %H:%M:%S")).seconds > 5:
+            request.session['visits'] = visits + 1
+            request.session['last_visit'] = str(datetime.now())
+    else:
+        # The get returns None, and the session does not have a value for the last visit.
+        request.session['last_visit'] = str(datetime.now())
+        request.session['visits'] = 1
+
     return render_to_response('rango/index.html', context_dict, context)
 
 
@@ -240,7 +257,14 @@ def user_logout(request):
 
 def about(request):
     context = RequestContext(request)
-    return render_to_response('rango/about.html', context)
+   
+    # check if there is a 'visits' serverside cookie or not
+    if request.session.get('visits'):
+        count = request.session.get('visits')
+    else:
+        count = 0
+
+    return render_to_response('rango/about.html', {'visits': count}, context)
 
 
 @login_required
