@@ -29,7 +29,7 @@ def index(request):
     context = RequestContext(request)
 
     # Query for categories - add the list to our context dictionary.
-    category_list = Category.objects.all()
+    category_list = Category.objects.order_by('views')[:5 ]
     context_dict = {'categories': category_list}
 
     # loop through each category and make a category attribute
@@ -178,7 +178,7 @@ def register(request):
     if request.method == 'POST':
         # grab information using both UserForm and UserProfileForm
         user_form = UserForm(data=request.POST)
-        profile_form = UserForm(data=request.POST)
+        profile_form = UserProfileForm(data=request.POST)
 
         # if the two forms are valid,
         if user_form.is_valid() and profile_form.is_valid():
@@ -269,4 +269,9 @@ def about(request):
 
 @login_required
 def restricted(request):
-    return HttpResponse("Since you're logged in, you can see this text!")
+    # if we're not logged in, we are redirected to a login page
+    context = RequestContext(request)
+
+    
+    return render_to_response('rango/restricted.html', {}, context)
+    #return HttpResponse("Since you're logged in, you can see this text!")
