@@ -2,6 +2,7 @@ from django.shortcuts import render, render_to_response
 from django.template import RequestContext
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from datetime import datetime
 
@@ -27,6 +28,19 @@ def decode_url(url):
     return url.replace('_', ' ')
 
 
+def get_category_list():
+    cat_list = []
+
+    cat_list = Category.objects.all() 
+
+    for cat in cat_list:
+        cat.url = encode_url(cat.name)
+    
+
+    return cat_list
+
+
+
 # each function is a view
 def index(request):
     # Obtain the context from the HTTP request.
@@ -35,6 +49,10 @@ def index(request):
     # Query for categories - add the list to our context dictionary.
     category_list = Category.objects.order_by('views')[:5 ]
     context_dict = {'categories': category_list}
+
+    cat_list = get_category_list()
+    context_dict['cat_list'] = cat_list
+
 
     # loop through each category and make a category attribute
     # and replace spaces with underscores
@@ -70,6 +88,11 @@ def category(request, category_name_url):
     context_dict = {'category_name': category_name}
     context_dict['category_name_url'] = category_name_url
 
+
+    cat_list = get_category_list()
+    context_dict['cat_list'] = cat_list
+
+
     try:
         # Can we find a category with the given name?
         # If we can't, the .get() method raises a DoesNotExist exception.
@@ -90,6 +113,14 @@ def category(request, category_name_url):
         # Don't do anything - the template displays the "no category" message for us.
         pass
 
+
+    if request.method == 'POST':
+        query = request.POST.get('query')
+        if query:
+            query = query.strip()
+            result_list = run_query(query)
+            context_dict['result_list'] = result_list
+
     # Go render the response and return it to the client.
     return render_to_response('rango/category.html', context_dict, context)
 
@@ -106,6 +137,10 @@ def add_category(request):
     '''
     # get the context from request
     context = RequestContext(request)
+
+    cat_list = get_category_list()
+    context_dict = {'cat_list': cat_list}
+
 
     # A HTTP POST?
     if request.method == 'POST':
@@ -125,9 +160,10 @@ def add_category(request):
         # display the form to enter details
         form = CategoryForm()
 
+    context_dict['form'] = form
 
     # bad form or form details, or no form supplied
-    return render_to_response('rango/add_category.html', {'form': form}, context)
+    return render_to_response('rango/add_category.html', context_dict, context)
 
 
 def add_page(request, category_name_url):
@@ -137,6 +173,9 @@ def add_page(request, category_name_url):
     context = RequestContext(request)
     category_name = decode_url(category_name_url)
     
+    cat_list = get_category_list()
+    context_dict = {'cat_list': cat_list}
+
     if request.method == 'POST':
         form = PageForm(request.POST)
 
@@ -163,9 +202,11 @@ def add_page(request, category_name_url):
     else:
         form = PageForm()
 
-    return render_to_response( 'rango/add_page.html', 
-            {'category_name_url': category_name_url,
-             'category_name': category_name, 'form': form}, context)
+    context_dict['category_name_url'] = category_name_url
+    context_dict['category_name'] = category_name
+    context_dict['form'] = form
+
+    return render_to_response( 'rango/add_page.html', context_dict, context)
 
 
 def register(request):
@@ -177,6 +218,9 @@ def register(request):
     # boolean value for telling the template whether the registration was
     # succesful or not
     registered = False
+
+    cat_list = get_category_list()
+    context_dict = {'cat_list': cat_list}
 
     # if it's an HTTP POST, we're interested in processing form data
     if request.method == 'POST':
@@ -215,7 +259,7 @@ def register(request):
         profile_form = UserProfileForm()
 
 
-    context_dict = {'user_form': user_form}
+    context_dict['user_form'] = user_form
     context_dict['profile_form'] = profile_form
     context_dict['registered'] = registered 
 
@@ -225,6 +269,9 @@ def register(request):
 
 def user_login(request):
     context = RequestContext(request)
+
+    cat_list = get_category_list()
+    context_dict = {'cat_list': cat_list}
 
     if request.method == 'POST':
         username = request.POST['username']
@@ -248,13 +295,37 @@ def user_login(request):
 
     else:
         # most likely an HTTP GET
-        return render_to_response('rango/login.html', {}, context)
+        return render_to_response('rango/login.html', context_dict, context)
+
+
+
+@login_required
+def profile(request):
+    context = RequestContext(request)
+
+    cat_list = get_category_list()
+    context_dict = {'cat_list': cat_list}
+
+    u = User.objects.get(username=request.user)
+    
+    try:
+        up = UserProfile.objects.get(user=u)
+    except:
+        up = None
+    
+    context_dict['user'] = u
+    context_dict['userprofile'] = up
+    return render_to_response('rango/profile.html', context_dict, context)
 
 
 
 def search(request):
     context = RequestContext(request)
     result_list = []
+
+    cat_list = get_category_list()
+    context_dict = {'cat_list': cat_list}
+
 
     if request.method == 'POST':
         query = request.POST['query'].strip()
@@ -263,7 +334,9 @@ def search(request):
             # Run our Bing function to get the results list!
             result_list = run_query(query)
 
-    return render_to_response('rango/search.html', {'result_list': result_list}, context)
+    context_dict['result_list'] = result_list
+    return render_to_response('rango/search.html', context_dict, context)
+
 
 
 
@@ -278,13 +351,18 @@ def user_logout(request):
 def about(request):
     context = RequestContext(request)
    
+    cat_list = get_category_list()
+    context_dict = {'cat_list': cat_list}
+
     # check if there is a 'visits' serverside cookie or not
     if request.session.get('visits'):
         count = request.session.get('visits')
     else:
         count = 0
 
-    return render_to_response('rango/about.html', {'visits': count}, context)
+    context_dict['visits'] = count
+
+    return render_to_response('rango/about.html', context_dict, context)
 
 
 @login_required
@@ -292,6 +370,8 @@ def restricted(request):
     # if we're not logged in, we are redirected to a login page
     context = RequestContext(request)
 
-    
-    return render_to_response('rango/restricted.html', {}, context)
-    #return HttpResponse("Since you're logged in, you can see this text!")
+    cat_list = get_category_list()
+    context_dict = {'cat_list': cat_list}
+
+
+    return render_to_response('rango/restricted.html', context_dict, context)
