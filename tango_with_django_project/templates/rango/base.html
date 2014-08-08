@@ -59,8 +59,15 @@
         <!-- the left sidebar -->
         <div class="span3">
           <div class="well sidebar-nav">
-            <!--- Empty for the timebeing -->
-            {% include 'rango/category_list.html' %}
+            {% block siderbar %}
+            {% endblock %}
+
+            <div id="cats">
+              {% if cat_list %}
+                <ul class="nav nav-list"><li>Category List</li></ul>
+                {% include 'rango/category_list.html' with cat_list=cat_list%}
+              {% endif %}
+            </div>
           </div>
         <!--/.well -->
         </div>
