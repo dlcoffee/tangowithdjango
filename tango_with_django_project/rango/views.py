@@ -29,7 +29,6 @@ def decode_url(url):
 
 
 def get_category_list():
-    cat_list = []
     cat_list = Category.objects.all()
 
     for cat in cat_list:
