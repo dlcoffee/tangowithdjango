@@ -446,4 +446,5 @@ def auto_add_page(request):
             # Adds our results list to the template context under name pages.
             context_dict['pages'] = pages
 
+    # want to refresh page, not sure what /page_list.html is
     return render_to_response('rango/page_list.html', context_dict, context)
