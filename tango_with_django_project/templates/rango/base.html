@@ -62,6 +62,14 @@
             {% block siderbar %}
             {% endblock %}
 
+              <ul class="nav nav-list">
+                <li class="nav-header">Find a Category</li>
+                <form>
+                  <label></label>
+                <li><input  class="search-query span10" type="text" name="suggestion" value="" id="suggestion" /></li>
+                </form>
+              </ul>
+              
             <div id="cats">
               {% if cat_list %}
                 <ul class="nav nav-list"><li>Category List</li></ul>
@@ -97,7 +105,8 @@
 
     <!-- the reason for loading these javascript files at the end is because the
          browser concatenates on rendering the elements of the webpage. -->
-    <script src="{% static 'js/jquery-2.0.3.min.js' %}"></script>
+    <script src="{% static 'js/jquery-2.1.1.min.js' %}"></script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/rango-ajax.js' %}"></script>
   </body>
 </html>
